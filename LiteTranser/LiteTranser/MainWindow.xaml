@@ -1,0 +1,14 @@
+﻿<Window x:Class="LiteTranser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LiteTranser" Height="266" Width="317" Loaded="Window_Loaded" Name="LiteTranser">
+    <Grid Height="238" Width="307">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="165*" />
+            <RowDefinition Height="62*" />
+        </Grid.RowDefinitions>
+        <Button Content="translate" Height="36" HorizontalAlignment="Left" Margin="0,17,0,0" Name="button1" VerticalAlignment="Top" Width="138" Click="button1_Click" Grid.Row="1" />
+        <TextBox Height="165" HorizontalAlignment="Left" Name="tb_input" VerticalAlignment="Top" Width="295" Grid.RowSpan="2" TextChanged="textBox1_TextChanged" HorizontalScrollBarVisibility="Visible" />
+        <Button Content="clear" Height="36" HorizontalAlignment="Left" Margin="157,17,0,0" Name="btnClear" VerticalAlignment="Top" Width="138" Grid.Row="1" Click="btnClear_Click" />
+    </Grid>
+</Window>
