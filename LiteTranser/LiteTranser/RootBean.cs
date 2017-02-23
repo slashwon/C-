@@ -16,15 +16,21 @@ namespace LiteTranser
 
         public string ConvertToString()
         {
+            if (errorCode != 0) return "";
+
             StringBuilder sb = new StringBuilder();
             sb.Append("查询词: " + query + "\n"); 
             sb.Append("译: ");
-            for (int i = 0; i < translation.Count; i++)
+            if (null != translation)
             {
-                sb.Append(translation[i]);
-                if (i < translation.Count - 1)
-                    sb.Append(";");
-                else sb.Append("\n");
+
+                for (int i = 0; i < translation.Count; i++)
+                {
+                    sb.Append(translation[i]);
+                    if (i < translation.Count - 1)
+                        sb.Append(";");
+                    else sb.Append("\n");
+                }
             }
 
             // convert "explains"
@@ -52,18 +58,20 @@ namespace LiteTranser
                 }
             }
 
-            foreach (WebBean w in web)
+            if (null!=web)
             {
-                sb.Append("例句: " + w.key + "\n");
-                for (int i = 0; i < w.value.Count; i++)
+                foreach (WebBean w in web)
                 {
-                    sb.Append("\t" + w.value[i]);
-                    if (i < w.value.Count - 1) sb.Append(";\n");
-                    else sb.Append("\n");
+                    sb.Append("例句: " + w.key + "\n");
+                    for (int i = 0; i < w.value.Count; i++)
+                    {
+                        sb.Append("\t" + w.value[i]);
+                        if (i < w.value.Count - 1) sb.Append(";\n");
+                        else sb.Append("\n");
+                    }
                 }
-
-
             }
+            
             return sb.ToString();
         }
     }

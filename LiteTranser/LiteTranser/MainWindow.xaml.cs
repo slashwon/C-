@@ -67,7 +67,6 @@ namespace LiteTranser
                 UpdateUiState(State.Active,false,"");
             }
         }
-
         protected override void OnKeyDown(KeyEventArgs e)
         {
             if (e.Key.Equals(Key.Enter))
@@ -78,6 +77,14 @@ namespace LiteTranser
                     UpdateUiState(State.Disactive, true, result);
                 }
             }
+
+            if (e.Key.Equals(Key.Escape))
+            {
+                this.Close();
+            }
+
         }
+
+       
     }
 }
